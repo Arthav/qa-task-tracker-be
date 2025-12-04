@@ -37,3 +37,46 @@ exports.getProjectById = async (req, res, next) => {
         next(error);
     }
 };
+
+exports.addMember = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const { userId } = req.body;
+
+        if (!userId) {
+            return res.status(400).json({ status: 'error', message: 'User ID is required' });
+        }
+
+        // Check if project exists
+        const projectCheck = await db.query('SELECT * FROM projects WHERE id = $1', [id]);
+        if (projectCheck.rows.length === 0) {
+            return res.status(404).json({ status: 'error', message: 'Project not found' });
+        }
+
+        // Check if user exists
+        const userCheck = await db.query('SELECT * FROM users WHERE id = $1', [userId]);
+        if (userCheck.rows.length === 0) {
+            return res.status(404).json({ status: 'error', message: 'User not found' });
+        }
+
+        // Check if already a member
+        const memberCheck = await db.query(
+            'SELECT * FROM project_members WHERE project_id = $1 AND user_id = $2',
+            [id, userId]
+        );
+
+        if (memberCheck.rows.length > 0) {
+            return res.status(400).json({ status: 'error', message: 'User is already a member of this project' });
+        }
+
+        // Add member
+        await db.query(
+            'INSERT INTO project_members (project_id, user_id) VALUES ($1, $2)',
+            [id, userId]
+        );
+
+        res.status(201).json({ status: 'success', message: 'Member added successfully' });
+    } catch (error) {
+        next(error);
+    }
+};
