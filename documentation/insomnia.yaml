@@ -1,0 +1,321 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: QA Task Tracker
+meta:
+  id: wrk_qa_task_tracker_001
+  created: 1757576515432
+  modified: 1757576515432
+  description: "API Documentation for QA Task Tracker"
+collection:
+  - name: Health
+    meta:
+      id: fld_health
+      created: 1757584362129
+      modified: 1757584362129
+      sortKey: 0
+      description: ""
+    children:
+      - url: "{{ _.BASE_URL }}status"
+        name: API Status
+        meta:
+          id: req_health_status
+          created: 1757580960512
+          modified: 1757580960512
+          isPrivate: false
+          description: ""
+          sortKey: 0
+        method: GET
+        headers: []
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.BASE_URL }}status/db"
+        name: DB Status
+        meta:
+          id: req_health_db
+          created: 1757580960513
+          modified: 1757580960513
+          isPrivate: false
+          description: ""
+          sortKey: 1
+        method: GET
+        headers: []
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.BASE_URL }}status/generate-jwt"
+        name: Generate JWT Secret
+        meta:
+          id: req_health_jwt
+          created: 1757580960514
+          modified: 1757580960514
+          isPrivate: false
+          description: ""
+          sortKey: 2
+        method: GET
+        headers: []
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+
+  - name: Users
+    meta:
+      id: fld_users
+      created: 1757584362130
+      modified: 1757584362130
+      sortKey: 1
+      description: ""
+    children:
+      - url: "{{ _.BASE_URL }}users"
+        name: Get All Users
+        meta:
+          id: req_users_list
+          created: 1757580960515
+          modified: 1757580960515
+          isPrivate: false
+          description: ""
+          sortKey: 0
+        method: GET
+        parameters:
+          - name: role
+            value: "QA"
+            description: "Filter by role (QA or DEV)"
+            disabled: true
+        headers: []
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.BASE_URL }}users/1"
+        name: Get User By ID
+        meta:
+          id: req_users_id
+          created: 1757580960516
+          modified: 1757580960516
+          isPrivate: false
+          description: ""
+          sortKey: 1
+        method: GET
+        headers: []
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+
+  - name: Projects
+    meta:
+      id: fld_projects
+      created: 1757584362131
+      modified: 1757584362131
+      sortKey: 2
+      description: ""
+    children:
+      - url: "{{ _.BASE_URL }}projects"
+        name: Get All Projects
+        meta:
+          id: req_projects_list
+          created: 1757580960517
+          modified: 1757580960517
+          isPrivate: false
+          description: ""
+          sortKey: 0
+        method: GET
+        headers: []
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.BASE_URL }}projects/1"
+        name: Get Project By ID
+        meta:
+          id: req_projects_id
+          created: 1757580960518
+          modified: 1757580960518
+          isPrivate: false
+          description: ""
+          sortKey: 1
+        method: GET
+        headers: []
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+
+  - name: Tasks
+    meta:
+      id: fld_tasks
+      created: 1757584362132
+      modified: 1757584362132
+      sortKey: 3
+      description: ""
+    children:
+      - url: "{{ _.BASE_URL }}tasks"
+        name: Get All Tasks
+        meta:
+          id: req_tasks_list
+          created: 1757580960519
+          modified: 1757580960519
+          isPrivate: false
+          description: ""
+          sortKey: 0
+        method: GET
+        parameters:
+          - name: projectId
+            value: "1"
+            description: "Filter by Project ID"
+            disabled: true
+        headers: []
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.BASE_URL }}tasks/1"
+        name: Get Task By ID
+        meta:
+          id: req_tasks_id
+          created: 1757580960520
+          modified: 1757580960520
+          isPrivate: false
+          description: ""
+          sortKey: 1
+        method: GET
+        headers: []
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.BASE_URL }}tasks"
+        name: Create Task
+        meta:
+          id: req_tasks_create
+          created: 1757580960521
+          modified: 1757580960521
+          isPrivate: false
+          description: ""
+          sortKey: 2
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "project_id": 1,
+              "scenario": "Login Flow",
+              "category": "Auth",
+              "test_case": "Verify login with valid credentials",
+              "test_steps": "1. Go to login page\n2. Enter valid email\n3. Enter valid password\n4. Click Login",
+              "data": "user: test@example.com, pass: 123456",
+              "expected_result": "Redirect to dashboard",
+              "actual_result": "Redirected to dashboard",
+              "kategori": "Functional",
+              "status": "PASS",
+              "catatan_from_qa": "Works as expected",
+              "assigned_qa_id": 1,
+              "assigned_dev_id": 2
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.BASE_URL }}tasks/1"
+        name: Update Task
+        meta:
+          id: req_tasks_update
+          created: 1757580960522
+          modified: 1757580960522
+          isPrivate: false
+          description: ""
+          sortKey: 3
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "status": "FAIL",
+              "actual_result": "Error message displayed",
+              "catatan_from_qa": "Found a bug on retry"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.BASE_URL }}tasks/1/repair-loops"
+        name: Add Repair Loop
+        meta:
+          id: req_tasks_repair
+          created: 1757580960523
+          modified: 1757580960523
+          isPrivate: false
+          description: ""
+          sortKey: 4
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "status": "IN_PROGRESS",
+              "notes": "Dev started working on the fix"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
