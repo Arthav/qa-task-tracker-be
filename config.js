@@ -1,11 +1,8 @@
 require('dotenv').config();
 
-module.exports = {
-    port: process.env.PORT || 3000,
-    db: {
-        host: process.env.DB_HOST,
-        user: process.env.DB_USER,
-        password: process.env.DB_PASS,
-        database: process.env.DB_NAME,
-    },
+const config = {
+    port: 5000,
+    TOKEN_EXPIRES_IN: process.env.TOKEN_EXPIRES_IN,
 };
+
+module.exports = config;

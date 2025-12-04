@@ -1,6 +1,8 @@
 const app = require('./app');
 const config = require('./config');
 
-app.listen(config.port, () => {
-    console.log(`Server running on port ${config.port}`);
+const PORT = process.env.PORT || config.port;
+
+const server = app.listen(PORT, () => {
+    console.log('QA Task Tracker is running on port', server.address().port);
 });
