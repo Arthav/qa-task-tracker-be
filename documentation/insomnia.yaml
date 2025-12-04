@@ -386,3 +386,59 @@ collection:
             send: true
             store: true
           rebuildPath: true
+
+environments:
+  name: Base Environment
+  meta:
+    id: env_31d62b35e4862f56d47cb8fd6739dc7e08bc0ba0
+    created: 1757576515435
+    modified: 1764829943386
+    isPrivate: false
+  data:
+    BASE_URL: https://qa-task-tracker-be.vercel.app/
+  subEnvironments:
+    - name: Local
+      meta:
+        id: env_80d5b5edaf9f4a6a9dfb1f66a89f5ce1
+        created: 1757580901319
+        modified: 1760067452943
+        isPrivate: false
+        sortKey: 1757580901319
+      data:
+        BASE_URL: https://qa-task-tracker-be.vercel.app/
+        TOKEN: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjZDdmNjRkLTdkMGUtNDQ2NS04NDk5LTJlMTg1ZDhhZmNkMCIsImVtYWlsIjoiY2hyaXN0aWFuYm9uYWZlbmE3QGdtYWlsLmNvbSIsInBob25lIjoiODAyMjMzODU3NTEwIiwiaWF0IjoxNzYwMDY3NDUyLCJleHAiOjE3NjA2NzIyNTJ9.GY4HwpjN5PeoZKq4ERsWl5l1tU82Su10TX6tVMtZHsE
+        LATEST_PURCHASE_ID: 327c6433-b481-47db-8419-ae0016f70597
+        OTP_CODE: "041956"
+        DRAFT_DOCUMENT: 6ec9b994-076b-4b54-aa7e-d90077282ebe
+      color: "#ff0a0a"
+    - name: Prod
+      meta:
+        id: env_70d6833ba3a94fc2a72dd5c1be85cff6
+        created: 1757580928534
+        modified: 1764829943386
+        isPrivate: false
+        sortKey: 1757580928534
+      data:
+        BASE_URL: https://appmaterai.hartsimagineering.com/api/
+        TOKEN: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjZDdmNjRkLTdkMGUtNDQ2NS04NDk5LTJlMTg1ZDhhZmNkMCIsImVtYWlsIjoiY2hyaXN0aWFuYm9uYWZlbmE3QGdtYWlsLmNvbSIsInBob25lIjoiODAyMjMzODU3NTEwIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNzY0NjU5ODk1LCJleHAiOjE3NjUyNjQ2OTV9.kWbEpDtwKbSzbQTEqfo6fScnQ-nss08ixb5tauAKw3M
+        OTP_CODE: "738528"
+        LATEST_PURCHASE_ID: bafcc526-a66b-4024-9d7a-f6d440f04197
+        DRAFT_DOCUMENT: c909aff9-3548-4420-a280-bfa9ad2c8558
+        DOC_ID: fe3c7e0a-13d2-40de-a219-6b4bc8f947ad
+        token_peruri: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpbV9lbWV0QHlvcG1haWwuY29tIiwic3ViIjoiMTk5ODA3NTAtM2NmMC00NTBiLThmNzEtNDVjMjQ2MTg5Yjg0IiwiYXVkIjoiaHR0cHM6Ly9lLW1ldGVyYWkuY28uaWQiLCJpc3MiOiJlbWV0ZXJhaSIsImp0aSI6ImMyZmQwMWMxLTczOWEtNGMwZi05M2Y1LWU2NTRhYjZmMTY1MCIsImV4cCI6MTc2NDMxNjQ3MiwiaWF0IjoxNzY0MjMwMDcyfQ.IH2oZGJYPxEBTwKWdxGw9lNuVZ4vt0nmyMxHA2iJpJs
+        ID_SIGNED: 6cddad66-ec24-4e66-abb7-f4ab30a99702
+        BUNDLE_ID: 661d5695-384d-4ee6-bf2a-45e93e02e480
+        VOUCHER_ID: 114febc0-98d4-4d73-a03b-5f9ad598dc70
+      color: "#004cff"
+    - name: Local Podman
+      meta:
+        id: env_ed3668d9efb6445da9888d7a9fe90357
+        created: 1757581533294
+        modified: 1758590760556
+        isPrivate: false
+        sortKey: 1757581533294
+      data:
+        BASE_URL: http://host.docker.internal:3000/
+        TOKEN: ""
+      color: "#fe58c9"
+

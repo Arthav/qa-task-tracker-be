@@ -5,6 +5,9 @@ const connectionString = process.env.DATABASE_URL;
 
 console.log("Using PostgreSQL connection string:", connectionString);
 
-const pool = new Pool({ connectionString });
+const pool = new Pool({
+    connectionString,
+    ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
+});
 
 module.exports = pool;
