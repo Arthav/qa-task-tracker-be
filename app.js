@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const expressip = require('express-ip');
-const errorHandler = require('./src/middleware/errorHandler');
+const errorHandler = require('./middleware/errorHandler');
 require('dotenv').config();
 const cors = require('cors');
 
