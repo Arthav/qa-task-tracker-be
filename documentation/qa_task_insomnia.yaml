@@ -2,14 +2,14 @@ type: collection.insomnia.rest/5.0
 schema_version: "5.1"
 name: QA Task Tracker
 meta:
-  id: wrk_qa_task_tracker_001
-  created: 1757576515432
-  modified: 1757576515432
-  description: "API Documentation for QA Task Tracker"
+  id: wrk_87db11c924224e349b4127dc25518937
+  created: 1764834010382
+  modified: 1764834010382
+  description: ""
 collection:
   - name: Health
     meta:
-      id: fld_health
+      id: fld_f078dab7150641be8a885cba2fd42bfe
       created: 1757584362129
       modified: 1757584362129
       sortKey: 0
@@ -18,14 +18,13 @@ collection:
       - url: "{{ _.BASE_URL }}status"
         name: API Status
         meta:
-          id: req_health_status
+          id: req_d95594b8bcda4ca9a550802ed26e1128
           created: 1757580960512
           modified: 1757580960512
           isPrivate: false
           description: ""
           sortKey: 0
         method: GET
-        headers: []
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -37,14 +36,13 @@ collection:
       - url: "{{ _.BASE_URL }}status/db"
         name: DB Status
         meta:
-          id: req_health_db
+          id: req_c2114a3ca00a42bfb223c51b8d490f5e
           created: 1757580960513
           modified: 1757580960513
           isPrivate: false
           description: ""
           sortKey: 1
         method: GET
-        headers: []
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -56,14 +54,13 @@ collection:
       - url: "{{ _.BASE_URL }}status/generate-jwt"
         name: Generate JWT Secret
         meta:
-          id: req_health_jwt
+          id: req_6aae591187f64c9a93ffd2eaa177167c
           created: 1757580960514
           modified: 1757580960514
           isPrivate: false
           description: ""
           sortKey: 2
         method: GET
-        headers: []
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -72,77 +69,9 @@ collection:
             send: true
             store: true
           rebuildPath: true
-
-  - name: Auth
-    meta:
-      id: fld_auth
-      created: 1757584362133
-      modified: 1757584362133
-      sortKey: 0.5
-      description: ""
-    children:
-      - url: "{{ _.BASE_URL }}auth/login"
-        name: Login
-        meta:
-          id: req_auth_login
-          created: 1757580960524
-          modified: 1757580960524
-          isPrivate: false
-          description: ""
-          sortKey: 0
-        method: POST
-        body:
-          mimeType: application/json
-          text: |-
-            {
-              "email": "sarah@example.com",
-              "password": "password123"
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.BASE_URL }}auth/register"
-        name: Register
-        meta:
-          id: req_auth_register
-          created: 1757580960525
-          modified: 1757580960525
-          isPrivate: false
-          description: ""
-          sortKey: 1
-        method: POST
-        body:
-          mimeType: application/json
-          text: |-
-            {
-              "name": "New User",
-              "email": "newuser@example.com",
-              "password": "password123",
-              "role": "QA"
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-
   - name: Users
     meta:
-      id: fld_users
+      id: fld_44682a99e7f8412abb43ed6eea3bbb9d
       created: 1757584362130
       modified: 1757584362130
       sortKey: 1
@@ -151,19 +80,21 @@ collection:
       - url: "{{ _.BASE_URL }}users"
         name: Get All Users
         meta:
-          id: req_users_list
+          id: req_ef3a4e0bd9314debb21e4971c9c48679
           created: 1757580960515
-          modified: 1757580960515
+          modified: 1764835632201
           isPrivate: false
           description: ""
           sortKey: 0
         method: GET
         parameters:
           - name: role
-            value: "QA"
-            description: "Filter by role (QA or DEV)"
+            value: QA
+            description: Filter by role (QA or DEV)
             disabled: true
-        headers: []
+        authentication:
+          type: bearer
+          token: "{{ _.TOKEN }}"
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -175,14 +106,16 @@ collection:
       - url: "{{ _.BASE_URL }}users/1"
         name: Get User By ID
         meta:
-          id: req_users_id
+          id: req_5fb77735a87a40749e32095033dbe5c0
           created: 1757580960516
-          modified: 1757580960516
+          modified: 1764835654042
           isPrivate: false
           description: ""
           sortKey: 1
         method: GET
-        headers: []
+        authentication:
+          type: bearer
+          token: "{{ _.TOKEN }}"
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -191,10 +124,9 @@ collection:
             send: true
             store: true
           rebuildPath: true
-
   - name: Projects
     meta:
-      id: fld_projects
+      id: fld_fd0e709abf694e2d8bb91c00c741ea08
       created: 1757584362131
       modified: 1757584362131
       sortKey: 2
@@ -203,14 +135,16 @@ collection:
       - url: "{{ _.BASE_URL }}projects"
         name: Get All Projects
         meta:
-          id: req_projects_list
+          id: req_15729d5ef8004973a2fed137de0818b6
           created: 1757580960517
-          modified: 1757580960517
+          modified: 1764835667800
           isPrivate: false
           description: ""
           sortKey: 0
         method: GET
-        headers: []
+        authentication:
+          type: bearer
+          token: "{{ _.TOKEN }}"
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -222,14 +156,16 @@ collection:
       - url: "{{ _.BASE_URL }}projects/1"
         name: Get Project By ID
         meta:
-          id: req_projects_id
+          id: req_69562b641a1c4d8e98847766a9195cf6
           created: 1757580960518
-          modified: 1757580960518
+          modified: 1764835680768
           isPrivate: false
           description: ""
           sortKey: 1
         method: GET
-        headers: []
+        authentication:
+          type: bearer
+          token: "{{ _.TOKEN }}"
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -238,10 +174,9 @@ collection:
             send: true
             store: true
           rebuildPath: true
-
   - name: Tasks
     meta:
-      id: fld_tasks
+      id: fld_d1fd1f926c9b47dfbc63e667eb68ff22
       created: 1757584362132
       modified: 1757584362132
       sortKey: 3
@@ -250,9 +185,9 @@ collection:
       - url: "{{ _.BASE_URL }}tasks"
         name: Get All Tasks
         meta:
-          id: req_tasks_list
+          id: req_13b75e267ac44b7285cb2f4a7c546309
           created: 1757580960519
-          modified: 1757580960519
+          modified: 1764835698706
           isPrivate: false
           description: ""
           sortKey: 0
@@ -260,9 +195,11 @@ collection:
         parameters:
           - name: projectId
             value: "1"
-            description: "Filter by Project ID"
+            description: Filter by Project ID
             disabled: true
-        headers: []
+        authentication:
+          type: bearer
+          token: "{{ _.TOKEN }}"
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -274,14 +211,16 @@ collection:
       - url: "{{ _.BASE_URL }}tasks/1"
         name: Get Task By ID
         meta:
-          id: req_tasks_id
+          id: req_cfdab6e5e9524c328eaf67351b8c7d67
           created: 1757580960520
-          modified: 1757580960520
+          modified: 1764835713749
           isPrivate: false
           description: ""
           sortKey: 1
         method: GET
-        headers: []
+        authentication:
+          type: bearer
+          token: "{{ _.TOKEN }}"
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -293,16 +232,16 @@ collection:
       - url: "{{ _.BASE_URL }}tasks"
         name: Create Task
         meta:
-          id: req_tasks_create
+          id: req_2adc687969a54659b3fe0b428e485e29
           created: 1757580960521
-          modified: 1757580960521
+          modified: 1764835733055
           isPrivate: false
           description: ""
           sortKey: 2
         method: POST
         body:
           mimeType: application/json
-          text: |-
+          text: >-
             {
               "project_id": 1,
               "scenario": "Login Flow",
@@ -321,6 +260,9 @@ collection:
         headers:
           - name: Content-Type
             value: application/json
+        authentication:
+          type: bearer
+          token: "{{ _.TOKEN }}"
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -332,9 +274,9 @@ collection:
       - url: "{{ _.BASE_URL }}tasks/1"
         name: Update Task
         meta:
-          id: req_tasks_update
+          id: req_9430221972954d368d1751803bb9b03b
           created: 1757580960522
-          modified: 1757580960522
+          modified: 1764835751660
           isPrivate: false
           description: ""
           sortKey: 3
@@ -350,6 +292,9 @@ collection:
         headers:
           - name: Content-Type
             value: application/json
+        authentication:
+          type: bearer
+          token: "{{ _.TOKEN }}"
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -361,9 +306,9 @@ collection:
       - url: "{{ _.BASE_URL }}tasks/1/repair-loops"
         name: Add Repair Loop
         meta:
-          id: req_tasks_repair
+          id: req_23cf541e40c546f980ece35f2d2f8e8b
           created: 1757580960523
-          modified: 1757580960523
+          modified: 1764835772163
           isPrivate: false
           description: ""
           sortKey: 4
@@ -378,6 +323,9 @@ collection:
         headers:
           - name: Content-Type
             value: application/json
+        authentication:
+          type: bearer
+          token: "{{ _.TOKEN }}"
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -386,59 +334,99 @@ collection:
             send: true
             store: true
           rebuildPath: true
-
+  - name: Auth
+    meta:
+      id: fld_c339e233f2e5452f9348689a8ffe0bf9
+      created: 1757584362133
+      modified: 1764835618183
+      sortKey: 0.5
+      description: ""
+    children:
+      - url: "{{ _.BASE_URL }}auth/login"
+        name: Login
+        meta:
+          id: req_6dd3b57f7dde4495b486d99c7fe0d201
+          created: 1757580960524
+          modified: 1764835612837
+          isPrivate: false
+          description: ""
+          sortKey: 0
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "email": "admin@example.com",
+              "password": "password123"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        scripts:
+          afterResponse: |-
+            const response = insomnia.response.json();
+            if(response.data && response.data.token) {
+            	const token = response.data.token;
+            	insomnia.environment.set("TOKEN", token);
+            }
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.BASE_URL }}auth/register"
+        name: Register
+        meta:
+          id: req_d901cbf2b56c4422a1f1f6eee043f7cf
+          created: 1757580960525
+          modified: 1764835621635
+          isPrivate: false
+          description: ""
+          sortKey: 1
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "name": "New User",
+              "email": "admin@example.com",
+              "password": "password123",
+              "role": "QA"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        scripts:
+          afterResponse: |-
+            const response = insomnia.response.json();
+            if(response.data && response.data.token) {
+            	const token = response.data.token;
+            	insomnia.environment.set("TOKEN", token);
+            }
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_884b7f0a5c0932cda7b29a5202fee7598b4ccd64
+    created: 1764834011467
+    modified: 1764835618179
 environments:
   name: Base Environment
   meta:
-    id: env_31d62b35e4862f56d47cb8fd6739dc7e08bc0ba0
+    id: env_c61427c67c2646e8884e3b75ebdd7175
     created: 1757576515435
-    modified: 1764829943386
+    modified: 1764835618182
     isPrivate: false
   data:
     BASE_URL: https://qa-task-tracker-be.vercel.app/
-  subEnvironments:
-    - name: Local
-      meta:
-        id: env_80d5b5edaf9f4a6a9dfb1f66a89f5ce1
-        created: 1757580901319
-        modified: 1760067452943
-        isPrivate: false
-        sortKey: 1757580901319
-      data:
-        BASE_URL: https://qa-task-tracker-be.vercel.app/
-        TOKEN: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjZDdmNjRkLTdkMGUtNDQ2NS04NDk5LTJlMTg1ZDhhZmNkMCIsImVtYWlsIjoiY2hyaXN0aWFuYm9uYWZlbmE3QGdtYWlsLmNvbSIsInBob25lIjoiODAyMjMzODU3NTEwIiwiaWF0IjoxNzYwMDY3NDUyLCJleHAiOjE3NjA2NzIyNTJ9.GY4HwpjN5PeoZKq4ERsWl5l1tU82Su10TX6tVMtZHsE
-        LATEST_PURCHASE_ID: 327c6433-b481-47db-8419-ae0016f70597
-        OTP_CODE: "041956"
-        DRAFT_DOCUMENT: 6ec9b994-076b-4b54-aa7e-d90077282ebe
-      color: "#ff0a0a"
-    - name: Prod
-      meta:
-        id: env_70d6833ba3a94fc2a72dd5c1be85cff6
-        created: 1757580928534
-        modified: 1764829943386
-        isPrivate: false
-        sortKey: 1757580928534
-      data:
-        BASE_URL: https://appmaterai.hartsimagineering.com/api/
-        TOKEN: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjZDdmNjRkLTdkMGUtNDQ2NS04NDk5LTJlMTg1ZDhhZmNkMCIsImVtYWlsIjoiY2hyaXN0aWFuYm9uYWZlbmE3QGdtYWlsLmNvbSIsInBob25lIjoiODAyMjMzODU3NTEwIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNzY0NjU5ODk1LCJleHAiOjE3NjUyNjQ2OTV9.kWbEpDtwKbSzbQTEqfo6fScnQ-nss08ixb5tauAKw3M
-        OTP_CODE: "738528"
-        LATEST_PURCHASE_ID: bafcc526-a66b-4024-9d7a-f6d440f04197
-        DRAFT_DOCUMENT: c909aff9-3548-4420-a280-bfa9ad2c8558
-        DOC_ID: fe3c7e0a-13d2-40de-a219-6b4bc8f947ad
-        token_peruri: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpbV9lbWV0QHlvcG1haWwuY29tIiwic3ViIjoiMTk5ODA3NTAtM2NmMC00NTBiLThmNzEtNDVjMjQ2MTg5Yjg0IiwiYXVkIjoiaHR0cHM6Ly9lLW1ldGVyYWkuY28uaWQiLCJpc3MiOiJlbWV0ZXJhaSIsImp0aSI6ImMyZmQwMWMxLTczOWEtNGMwZi05M2Y1LWU2NTRhYjZmMTY1MCIsImV4cCI6MTc2NDMxNjQ3MiwiaWF0IjoxNzY0MjMwMDcyfQ.IH2oZGJYPxEBTwKWdxGw9lNuVZ4vt0nmyMxHA2iJpJs
-        ID_SIGNED: 6cddad66-ec24-4e66-abb7-f4ab30a99702
-        BUNDLE_ID: 661d5695-384d-4ee6-bf2a-45e93e02e480
-        VOUCHER_ID: 114febc0-98d4-4d73-a03b-5f9ad598dc70
-      color: "#004cff"
-    - name: Local Podman
-      meta:
-        id: env_ed3668d9efb6445da9888d7a9fe90357
-        created: 1757581533294
-        modified: 1758590760556
-        isPrivate: false
-        sortKey: 1757581533294
-      data:
-        BASE_URL: http://host.docker.internal:3000/
-        TOKEN: ""
-      color: "#fe58c9"
-
+    TOKEN: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6IlFBIiwibmFtZSI6Ik5ldyBVc2VyIiwiaWF0IjoxNzY0ODM1NjE4LCJleHAiOjE3Njc0Mjc2MTh9.7H-SIk76a7wsvfStUgaTjsbsynJJHQ9baxiMbtgHMfA

@@ -3,7 +3,7 @@ const db = require('../../../services/db');
 exports.getUsers = async (req, res, next) => {
     try {
         const { role } = req.query;
-        let query = 'SELECT * FROM users';
+        let query = 'SELECT id, name, email, role, avatar FROM users';
         const params = [];
 
         if (role) {
@@ -21,7 +21,7 @@ exports.getUsers = async (req, res, next) => {
 exports.getUserById = async (req, res, next) => {
     try {
         const { id } = req.params;
-        const { rows } = await db.query('SELECT * FROM users WHERE id = $1', [id]);
+        const { rows } = await db.query('SELECT id, name, email, role, avatar FROM users WHERE id = $1', [id]);
 
         if (rows.length === 0) {
             return res.status(404).json({ status: 'error', message: 'User not found' });
