@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const controller = require('./controller');
+const taskController = require('./controller');
+const { authenticate } = require('../../middleware/middleware');
 
-router.get('/', controller.getTasks);
-router.get('/:id', controller.getTaskById);
-router.post('/', controller.createTask);
-router.put('/:id', controller.updateTask);
-router.post('/:id/repair-loops', controller.addRepairLoop);
+router.get('/', authenticate, taskController.getTasks);
+router.get('/:id', authenticate, taskController.getTaskById);
+router.post('/', authenticate, taskController.createTask);
+router.put('/:id', authenticate, taskController.updateTask);
+router.post('/:id/repair-loops', authenticate, taskController.addRepairLoop);
 
 module.exports = router;

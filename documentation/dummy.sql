@@ -1,13 +1,14 @@
 -- Dummy Data for QA Task Tracker
 
 -- Users
-INSERT INTO users (name, role, avatar) VALUES
-('Sarah Chen', 'QA', 'https://i.pravatar.cc/150?u=sarah'),
-('Michael Rodriguez', 'QA', 'https://i.pravatar.cc/150?u=michael'),
-('Aisha Patel', 'QA', 'https://i.pravatar.cc/150?u=aisha'),
-('James Wilson', 'DEV', 'https://i.pravatar.cc/150?u=james'),
-('Elena Kovač', 'DEV', 'https://i.pravatar.cc/150?u=elena'),
-('Ahmad Hassan', 'DEV', 'https://i.pravatar.cc/150?u=ahmad');
+-- Password for all users is 'password123' (hashed)
+INSERT INTO users (name, email, password, role, avatar) VALUES
+('Sarah Chen', 'sarah@example.com', '$2a$10$r.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ', 'QA', 'https://i.pravatar.cc/150?u=sarah'),
+('Michael Rodriguez', 'michael@example.com', '$2a$10$r.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ', 'QA', 'https://i.pravatar.cc/150?u=michael'),
+('Aisha Patel', 'aisha@example.com', '$2a$10$r.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ', 'QA', 'https://i.pravatar.cc/150?u=aisha'),
+('James Wilson', 'james@example.com', '$2a$10$r.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ', 'DEV', 'https://i.pravatar.cc/150?u=james'),
+('Elena Kovač', 'elena@example.com', '$2a$10$r.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ', 'DEV', 'https://i.pravatar.cc/150?u=elena'),
+('Ahmad Hassan', 'ahmad@example.com', '$2a$10$r.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ.zZ', 'DEV', 'https://i.pravatar.cc/150?u=ahmad');
 
 -- Projects
 INSERT INTO projects (name, description, created_at) VALUES

@@ -1,11 +1,18 @@
 -- Database initialization script
--- Note: Create the database manually if it doesn't exist, or use a setup script.
--- CREATE DATABASE qa_task_tracker;
+
+DROP TABLE IF EXISTS repair_loops CASCADE;
+DROP TABLE IF EXISTS qa_tasks CASCADE;
+DROP TABLE IF EXISTS project_members CASCADE;
+DROP TABLE IF EXISTS projects CASCADE;
+DROP TABLE IF EXISTS users CASCADE;
+
 
 -- Users Table
 CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
     role VARCHAR(50) CHECK (role IN ('QA', 'DEV')),
     avatar TEXT
 );
