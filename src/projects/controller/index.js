@@ -30,7 +30,10 @@ exports.getProjectById = async (req, res, next) => {
         }
 
         const project = projectResult.rows[0];
-        project.members = membersResult.rows;
+        const members = membersResult.rows;
+
+        project.qaUsers = members.filter(m => m.role === 'QA');
+        project.devUsers = members.filter(m => m.role === 'DEV');
 
         res.status(200).json({ status: 'success', data: project });
     } catch (error) {
