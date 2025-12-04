@@ -1,7 +1,7 @@
 const db = require('../../../services/db');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { JWT_SECRET, TOKEN_EXPIRES_IN } = require('../../config');
+const { JWT_SECRET, TOKEN_EXPIRES_IN } = require('../../../config');
 
 exports.login = async (req, res, next) => {
     try {
