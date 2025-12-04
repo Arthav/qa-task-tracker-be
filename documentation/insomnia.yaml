@@ -73,6 +73,73 @@ collection:
             store: true
           rebuildPath: true
 
+  - name: Auth
+    meta:
+      id: fld_auth
+      created: 1757584362133
+      modified: 1757584362133
+      sortKey: 0.5
+      description: ""
+    children:
+      - url: "{{ _.BASE_URL }}auth/login"
+        name: Login
+        meta:
+          id: req_auth_login
+          created: 1757580960524
+          modified: 1757580960524
+          isPrivate: false
+          description: ""
+          sortKey: 0
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "email": "sarah@example.com",
+              "password": "password123"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.BASE_URL }}auth/register"
+        name: Register
+        meta:
+          id: req_auth_register
+          created: 1757580960525
+          modified: 1757580960525
+          isPrivate: false
+          description: ""
+          sortKey: 1
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "name": "New User",
+              "email": "newuser@example.com",
+              "password": "password123",
+              "role": "QA"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+
   - name: Users
     meta:
       id: fld_users
